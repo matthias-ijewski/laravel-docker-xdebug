@@ -2,8 +2,8 @@ version: '3'
 
 networks:
     laravel:
-    app-twocom_app-shared:
-        external: true
+    # app-twocom_app-shared:
+    #     external: true
 
 services:
     nginx:
@@ -11,8 +11,6 @@ services:
         container_name: nginx_one
         ports:
             - '8080:80'
-        expose:
-            - '9007'
         volumes:
             - ./src:/var/www/html
             - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -21,7 +19,7 @@ services:
             - mysql
         networks:
             - laravel
-            - app-twocom_app-shared
+            # - app-twocom_app-shared
 
     mysql:
         image: mysql:5.7.29
@@ -55,7 +53,7 @@ services:
             PHP_XDEBUG_IDEKEY: 'VSCODE'
         networks:
             - laravel
-            - app-twocom_app-shared
+            # - app-twocom_app-shared
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
