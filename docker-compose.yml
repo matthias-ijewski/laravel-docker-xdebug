@@ -89,7 +89,7 @@ services:
     artisan:
         build:
             context: .
-            dockerfile: php.dockerfile
+            dockerfile: artisan.dockerfile
         container_name: artisan_one
         volumes:
             - ./src:/var/www/html
